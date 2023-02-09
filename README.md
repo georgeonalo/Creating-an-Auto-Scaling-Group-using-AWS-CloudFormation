@@ -184,3 +184,114 @@ Resources:
         - !Ref PublicSubnet1
         - !Ref PublicSubnet2
 ```
+
+
+
+
+As you can see the template has many variables. For more information on how to create your own template visit; What is AWS CloudFormation? — AWS CloudFormation (amazon.com). The sample templates and template snippets are essential in this process. The possibilities are truly endless. In my template I have Parameters and Resources that will be created. The “!Ref” references other areas of the code making it more flexible to adapt to your own needs.
+
+
+
+
+
+
+Back in the AWS console, we will begin creating our Stack. Click on Template is ready and Upload a Template file. Choose the YAML template. Then hit Next.
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/115881685/217728780-c340e2d3-790f-4dfc-bb36-0c6ff681de89.png)
+
+
+
+
+On the next screen you will specify the Stack details. This is where the Parameters come into play. You can name your Stack, choose your Key Pair and choose your VPC. The VPC will need a CIDR of 10.0.0.0/16. Then click Next.
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/115881685/217728927-e09643e5-3464-4942-b27e-de7ed3837acb.png)
+
+
+
+On the next page leave everything at default and click Next. You will be brought to the Review page. Here you can look it over and click Create Stack.
+
+
+
+
+![image](https://user-images.githubusercontent.com/115881685/217729369-f9efbd30-098f-4209-8d16-4adf90f61d8e.png)
+
+
+
+
+
+You will be brought to a screen that should look like the above. Stating the Stack Create_In_Progress. If you navigate to the Resources tab you can watch as each resource is created and see where things are created successfully and where they may fail. I had to do a lot of troubleshooting from this stage. After a few minutes your screen will hopefully look like this!
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/115881685/217729533-5072ffd4-3cc0-4fd6-add0-ac769aaf53dc.png)
+
+
+
+### Step 2
+
+
+
+![image](https://user-images.githubusercontent.com/115881685/217729715-29103ab9-e55b-40f1-9d8b-09faaa323347.png)
+
+
+
+
+Grab the public IPv4 address and paste it into your browser to check that Apache is up and running as well.
+
+
+
+![image](https://user-images.githubusercontent.com/115881685/217730051-961fb0e6-5bdc-4692-a88c-cfa616cccd11.png)
+
+
+
+
+The test page shows that it was a success!
+
+
+### Step 3
+
+Now to test if the Auto scaling group is doing it’s job I will terminate 2 of the instances. Here goes.
+
+
+
+![image](https://user-images.githubusercontent.com/115881685/217730237-ca19435a-43a0-4d4e-9e4a-f74e2fc358fc.png)
+
+
+
+
+The 2 instances were terminated. In their place 2 more instances have populated.
+
+
+
+
+![image](https://user-images.githubusercontent.com/115881685/217730383-9d4b83e2-4fc1-4e9f-917d-a49a0669bfd5.png)
+
+
+
+
+This shows that our ASG successfully scaled out!
+
+
+
+
+Be sure to delete your CloudFormation Stack so as not to be charged. CloudFormation is free to use but not all the resources it provisions are. This was a challenging project and I hope you feel as accomplished as I do after completing it!
+
+
+
+
+
+
+
+
+
+
