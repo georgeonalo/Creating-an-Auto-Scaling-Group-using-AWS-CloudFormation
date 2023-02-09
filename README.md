@@ -238,6 +238,7 @@ You will be brought to a screen that should look like the above. Stating the Sta
 
 
 ### Step 2
+You can now navigate to Instances. You will see that you have 3 new instances up and running, spread across two availability zones.
 
 
 
